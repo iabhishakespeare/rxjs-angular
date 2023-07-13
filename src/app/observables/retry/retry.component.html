@@ -1,0 +1,16 @@
+<h1>Retry Component</h1>
+
+<button class="btn btn-primary" (click)="fetchDetails()" type="button">{{fetching?'Fetching...':'Fetch Details'}}
+<span *ngIf="fetching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+<table *ngIf="data">
+    <caption style="caption-side: top;">User Details</caption>
+    <tr>
+        <th>Name: </th>
+        <td>{{data[0].name}}</td>
+    </tr>
+    <tr>
+        <th>Email: </th>
+        <td>{{data[0].email}}</td>    
+    </tr>
+</table>
+<p>Status: <strong [ngClass]="{'text-success': fetchStatus==='Data Fetched', 'text-danger': fetchStatus==='Problem Fetching Data!'}">{{fetchStatus}}</strong></p>
